@@ -1,0 +1,28 @@
+---
+import Button from "./Buttons.astro";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  buttonText?: string;
+}
+
+const { title, subtitle, buttonText = "Contactar ahora" } = Astro.props;
+---
+
+<section class="w-full flex justify-center items-center px-4">
+  <div
+    class="flex flex-col w-full max-w-4xl min-h-[30vh] relative gap-4 px-4 sm:px-8 py-6 justify-center items-center text-center"
+  >
+    <h4
+      class="text-primary font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-[50px]"
+    >
+      {title}
+    </h4>
+    <p class="text-base sm:text-lg md:text-xl">
+      {subtitle}
+    </p>
+
+    <Button>{buttonText}</Button>
+  </div>
+</section>

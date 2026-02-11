@@ -1,0 +1,152 @@
+---
+import { Image } from "astro:assets";
+import logoFooter from "../assets/logo_footer.svg";
+import facebookIcon from "../assets/facebook.svg";
+import instagramIcon from "../assets/instagram.svg";
+import tiktokIcon from "../assets/tiktok.svg";
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full bg-[#004b6c] text-white mt-16">
+  <div class="mx-auto max-w-6xl px-6 py-12 md:py-16">
+    <div class="flex flex-col gap-12 md:flex-row md:justify-between">
+      <div class="max-w-sm space-y-8">
+        <div class="space-y-6">
+          <Image
+            src={logoFooter}
+            alt="Infinaweb logo"
+            class="h-20 w-auto"
+            loading="lazy"
+          />
+          <p class="text-sm md:text-base leading-relaxed text-white/90">
+            Multiplicando tu potencial comercial mediante soluciones digitales.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <a
+            href="#"
+            aria-label="Instagram Infinaweb"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 transition hover:bg-gray-400"
+          >
+            <Image
+              src={instagramIcon}
+              alt="Instagram"
+              class="h-5 w-5"
+              loading="lazy"
+            />
+          </a>
+          <a
+            href="#"
+            aria-label="Facebook Infinaweb"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 transition hover:bg-gray-400"
+          >
+            <Image
+              src={facebookIcon}
+              alt="Facebook"
+              class="h-5 w-5"
+              loading="lazy"
+            />
+          </a>
+          <a
+            href="#"
+            aria-label="TikTok Infinaweb"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 transition hover:bg-gray-400"
+          >
+            <Image
+              src={tiktokIcon}
+              alt="TikTok"
+              class="h-5 w-5"
+              loading="lazy"
+            />
+          </a>
+        </div>
+      </div>
+
+      <div class="grid gap-10 text-sm sm:grid-cols-2 md:grid-cols-3">
+        <div>
+          <h3
+            class="mb-4 text-sm font-semibold tracking-wide uppercase text-white"
+          >
+            Productos
+          </h3>
+          <ul class="space-y-2 text-white/80">
+            <li>
+              <a href="#" class="transition hover:text-white">
+                Sistema Punto de Venta (POS)
+              </a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-white"> E-commerce </a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-white">
+                Renovación web
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="mb-4 text-sm font-semibold tracking-wide uppercase text-white"
+          >
+            Soluciones
+          </h3>
+          <ul class="space-y-2 text-white/80">
+            <li>
+              <a href="#" class="transition hover:text-white">Startups</a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-white">Empresas</a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-white">
+                Negocios tradicionales
+              </a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-white">Venta online</a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-white">
+                Gestión de negocio
+              </a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-white">
+                Soluciones a medida
+              </a>
+            </li>
+            <li><a href="#" class="transition hover:text-white">Retail</a></li>
+            <li>
+              <a href="#" class="transition hover:text-white">Restaurantes</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="mb-4 text-sm font-semibold tracking-wide uppercase text-white"
+          >
+            Soporte
+          </h3>
+          <ul class="space-y-2 text-white/80">
+            <li>
+              <a href="#" class="transition hover:text-white">Contacto</a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-white">
+                Preguntas frecuentes
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-white/10 pt-6 text-xs text-white/60">
+      © {currentYear} Infinaweb. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>

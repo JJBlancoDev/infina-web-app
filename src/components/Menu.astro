@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+import Logo from "./Logo.astro";
+import Buttons from "./Buttons.astro";
+import menuIcon from "../assets/menu.svg";
+---
+
+<header
+  class="w-full max-w-5xl h-16 sm:h-20 flex items-center justify-between rounded-lg shadow-[0px_0px_25px_1px_#838f95] fixed top-3 sm:top-6 left-1/2 -translate-x-1/2 px-4 sm:px-6 z-50 backdrop-blur bg-white/80"
+>
+  <Logo />
+
+  <ul class="hidden md:flex gap-6 lg:gap-8 text-sm lg:text-base">
+    <li>
+      <a class="cursor-pointer hover:border-b" href="javascript:void(0)"
+        >Productos</a
+      >
+    </li>
+    <li>
+      <a class="cursor-pointer hover:border-b" href="javascript:void(0)"
+        >Soluciones</a
+      >
+    </li>
+    <li>
+      <a class="cursor-pointer hover:border-b" href="javascript:void(0)"
+        >Tienda Demo</a
+      >
+    </li>
+    <li>
+      <a class="cursor-pointer hover:border-b" href="javascript:void(0)"
+        >Tarifas</a
+      >
+    </li>
+    <li>
+      <a class="cursor-pointer hover:border-b" href="javascript:void(0)"
+        >Sobre Infinaweb</a
+      >
+    </li>
+  </ul>
+
+  <div class="hidden sm:block">
+    <Buttons>Contactar ahora</Buttons>
+  </div>
+
+  <!-- Botón hamburguesa móvil -->
+  <input id="menu-toggle" type="checkbox" class="peer hidden" />
+  <label
+    for="menu-toggle"
+    class="flex md:hidden items-center justify-center ml-3 cursor-pointer rounded-md p-2 hover:bg-gray-100 active:bg-gray-200"
+    aria-label="Abrir menú de navegación"
+  >
+    <Image src={menuIcon} alt="Menú" class="w-6 h-6" loading="lazy" />
+  </label>
+
+  <!-- Menú desplegable móvil -->
+  <nav
+    data-mobile-nav
+    class="peer-checked:flex hidden md:hidden flex-col gap-4 absolute left-0 right-0 top-full mt-3 mx-4 rounded-lg bg-white/95 shadow-[0px_0px_20px_0px_rgba(0,0,0,0.15)] px-5 py-4 text-sm"
+  >
+    <a class="cursor-pointer hover:text-(--font-accent)" href="#">Productos</a>
+    <a class="cursor-pointer hover:text-(--font-accent)" href="#">Soluciones</a>
+    <a class="cursor-pointer hover:text-(--font-accent)" href="#">Tienda Demo</a
+    >
+    <a class="cursor-pointer hover:text-(--font-accent)" href="#">Tarifas</a>
+    <a class="cursor-pointer hover:text-(--font-accent)" href="#"
+      >Sobre Infinaweb</a
+    >
+
+    <div class="pt-2 border-t border-(--gray-50) mt-2">
+      <Buttons>Contactar ahora</Buttons>
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  if (typeof window !== "undefined") {
+    const mdBreakpoint = 768;
+
+    const toggle = document.getElementById("menu-toggle");
+    const nav = document.querySelector("[data-mobile-nav]");
+
+    const closeMenu = () => {
+      if (toggle && "checked" in toggle) {
+        // @ts-ignore
+        toggle.checked = false;
+      }
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth >= mdBreakpoint) {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    if (nav) {
+      nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          closeMenu();
+        });
+      });
+    }
+  }
+</script>

@@ -1,0 +1,74 @@
+---
+import Card from "./Card.astro";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  cards: Array<{
+    icon: any;
+    title: string;
+    description: string;
+    highlightText?: string;
+    descriptionSuffix?: string;
+    showButton?: boolean;
+  }>;
+  hasGradient?: boolean;
+}
+
+const { title, subtitle, cards, hasGradient = false } = Astro.props;
+---
+
+<style>
+  .gradient-texture {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #dbeafe 0%, #cffafe 50%, #ccfbf1 100%);
+  }
+
+  .gradient-texture::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.3;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 0;
+  }
+</style>
+
+<section
+  class={`w-full flex justify-center items-start px-4 sm:px-6 ${
+    hasGradient ? "gradient-texture" : ""
+  }`}
+>
+  <div
+    class="flex flex-col w-full max-w-5xl min-h-[50vh] relative gap-3 sm:gap-4 px-0 sm:px-6 lg:px-10 py-10 z-10"
+  >
+    <h4
+      class="text-primary font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-[70px] leading-tight"
+    >
+      {title}
+    </h4>
+    <p class="text-base sm:text-lg md:text-xl max-w-2xl">
+      {subtitle}
+    </p>
+
+    <div
+      class="mt-6 grid gap-4 justify-items-center sm:grid-cols-2 lg:flex lg:flex-row lg:gap-6 lg:justify-between"
+    >
+      {
+        cards.map((card) => (
+          <Card
+            icon={card.icon}
+            title={card.title}
+            description={card.description}
+            highlightText={card.highlightText}
+            descriptionSuffix={card.descriptionSuffix}
+            showButton={card.showButton}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "./variables.css";
+
+@theme {
+  --color-body: var(--font-body);
+  --color-primary: var(--font-primary);
+  --color-secondary: var(--font-secondary);
+  --color-accent: var(--font-accent);
+  --color-gray-50: var(--gray-50);
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Jost-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/Jost-SemiBold.woff2") format("woff2");
+}
+
+* {
+  font-family: "Jost", sans-serif;
+}

@@ -1,0 +1,36 @@
+<style>
+  @keyframes rotateGradient {
+    0% {
+      background: linear-gradient(65deg, #065f93 0%, #003757 100%);
+    }
+    100% {
+      background: linear-gradient(245deg, #065f93 0%, #003757 100%);
+    }
+  }
+
+  .gradient-button {
+    background: linear-gradient(65deg, #065f93 0%, #003757 100%);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .gradient-button:hover {
+    animation: rotateGradient 0.2s ease-in-out forwards;
+  }
+
+  .gradient-button-alt {
+    background: linear-gradient(65deg, #065f93 0%, #003757 100%);
+    transition: all 0.5s ease-in-out;
+    color: #f2f2f2;
+  }
+
+  .gradient-button-alt:hover {
+    background: white;
+    color: #000;
+  }
+</style>
+
+<button
+  class="gradient-button text-gray-50 py-2 px-4 rounded-md font-medium cursor-pointer"
+>
+  <slot />
+</button>
